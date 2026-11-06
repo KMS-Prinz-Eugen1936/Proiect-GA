@@ -27,6 +27,10 @@ int fitness(vector<vector<int>>Population, int Queen_Pop, int INDEX) {
 return conflict;
 }
 
+void parent_selection(vector<vector<int>>Population, int Queen_Pop, int Pop_Size,int P1[Queen_Pop],int P2[Queen_Pop]) {
+
+}
+
 int main() {
     cout<<"Insert number of Queens:";
     cin>>Queen_Pop;
