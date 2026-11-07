@@ -27,8 +27,32 @@ int fitness(vector<vector<int>>Population, int Queen_Pop, int INDEX) {
 return conflict;
 }
 
-void parent_selection(vector<vector<int>>Population, int Queen_Pop, int Pop_Size,int P1[Queen_Pop],int P2[Queen_Pop]) {
+void parent_selection(vector<vector<int>>& Population,int Queen_Pop,int Pop_Size,int P1[],int P2[]) {
+    uniform_int_distribution<int> random_parent(1, Pop_Size);
 
+    // Select Parent 1
+    int A = random_parent(gen);
+    int B = random_parent(gen);
+
+    if (fitness(Population, Queen_Pop, A) <
+        fitness(Population, Queen_Pop, B))
+        for (int i = 1; i <= Queen_Pop; i++)
+            P1[i] = Population[A][i];
+    else
+        for (int i = 1; i <= Queen_Pop; i++)
+            P1[i] = Population[B][i];
+
+    // Select Parent 2
+    A = random_parent(gen);
+    B = random_parent(gen);
+
+    if (fitness(Population, Queen_Pop, A) <
+        fitness(Population, Queen_Pop, B))
+        for (int i = 1; i <= Queen_Pop; i++)
+            P2[i] = Population[A][i];
+    else
+        for (int i = 1; i <= Queen_Pop; i++)
+            P2[i] = Population[B][i];
 }
 
 int main() {
